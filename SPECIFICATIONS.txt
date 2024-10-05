@@ -1,0 +1,116 @@
+# Especificaciones de Git Bash
+
+Esta hoja proporciona detalles adicionales sobre ciertos comandos de Git Bash que pueden ser útiles al trabajar en proyectos.
+
+## Configuración Inicial
+
+- `git init`  
+  Inicializa un nuevo repositorio Git en el directorio actual. Crea una subcarpeta llamada `.git` que contiene todos los archivos necesarios para gestionar el repositorio.
+
+- `git config --global user.name "<nombre>"`  
+  Establece tu nombre de usuario globalmente. Esto es útil si deseas que tus commits sean identificados bajo un nombre específico.
+
+- `git config --global user.email "<email>"`  
+  Establece tu dirección de correo electrónico para que se adjunte a tus commits. Se usa para identificarte como el autor de los cambios.
+
+## Clonar Repositorios
+
+- `git clone <URL>`  
+  Clona un repositorio remoto y descarga una copia local en tu computadora. Ideal para comenzar a trabajar con proyectos colaborativos.
+
+
+## Control de Versiones
+
+- `git log`  
+  Muestra un historial detallado de las confirmaciones. Esto incluye la información de las ramas y etiquetas.
+
+- `git log --oneline`  
+  Una versión más compacta del historial de confirmaciones, útil para una vista rápida.
+
+## Trabajando con Cambios
+
+- `git diff`  
+  Muestra las diferencias entre archivos modificados pero no añadidos al área de preparación.
+
+- `git diff --staged`  
+  Muestra las diferencias entre los archivos en el área de preparación y el último commit.
+
+## Guardado Temporal
+
+- `git stash`  
+  Guarda temporalmente los cambios sin necesidad de confirmarlos, permitiendo cambiar de rama o actualizar sin perder trabajo.
+
+- `git stash pop`  
+  Aplica los cambios guardados con `stash` y los elimina de la pila de stashes.
+
+## Restablecimiento y Reversión
+
+- `git reset <archivo>`  
+  Quita un archivo del área de preparación (staging), regresándolo a su estado anterior.
+
+- `git reset --hard <commit>`  
+  Restablece el repositorio a una confirmación anterior, eliminando todos los cambios posteriores.
+
+- `git revert <commit>`  
+  Crea una nueva confirmación que revierte los cambios introducidos por una confirmación anterior.
+
+## Conflictos y Fusión
+
+- `git merge <rama>`  
+  Fusiona la rama especificada en la rama actual. Git intentará automáticamente fusionar los cambios. Si se encuentran conflictos, se te pedirá que los resuelvas manualmente.
+
+- `git merge --abort`  
+  Cancela una fusión en curso y restaura el repositorio al estado anterior al intento de fusión.
+
+- `git rebase <rama>`  
+  Transfiere las confirmaciones de una rama base a la rama actual. Rebase reescribe el historial de commits, lo que puede ser útil para mantener un historial limpio.
+
+## Trabajando con Remotos
+
+- `git fetch <remoto>`  
+  Descarga objetos y referencias desde el repositorio remoto, pero no los integra con tu rama actual. Es útil para obtener actualizaciones sin modificar el trabajo en curso.
+
+- `git pull`  
+  Descarga y fusiona automáticamente los cambios del repositorio remoto con la rama actual.
+
+- `git push <remoto> <rama>`  
+  Sube los cambios confirmados localmente a un repositorio remoto.
+
+## Ramas
+
+- `git branch <nombre>`  
+  Crea una nueva rama. Las ramas son útiles para desarrollar nuevas características sin afectar el código principal.
+
+- `git checkout <rama>`  
+  Cambia a una rama existente.
+
+- `git checkout -b <rama>`  
+  Crea y cambia a una nueva rama en un solo paso.
+
+- `git branch -d <rama>`  
+  Elimina una rama local que ya no es necesaria.
+
+## Etiquetas
+
+- `git tag <nombre>`  
+  Crea una etiqueta en la confirmación actual. Las etiquetas se usan generalmente para marcar versiones importantes (por ejemplo, una versión de lanzamiento).
+
+
+- `git tag -d <nombre>`  
+  Elimina una etiqueta localmente.
+
+- `git push <remoto> <nombre>`  
+  Sube una etiqueta específica al repositorio remoto.
+
+## Búsqueda de Errores
+
+- `git bisect`  
+  Utiliza la búsqueda binaria para localizar el commit que introdujo un error en el código. Este comando es muy útil en proyectos grandes donde el historial de confirmaciones es largo.
+
+## Reflog
+
+- `git reflog`  
+  Muestra un historial de todos los cambios en el HEAD, incluso aquellos que no son visibles en el historial de confirmaciones estándar. Esto es útil para recuperar commits que parecían perdidos.
+
+
+
